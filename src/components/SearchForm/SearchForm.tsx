@@ -2,7 +2,7 @@ import { SearchOutlined } from '@mui/icons-material';
 import { Box, Button, Grid2, Paper } from '@mui/material';
 import { useEffect } from 'react';
 import { useFlightContext } from '../../context';
-import { useSearchFlights } from '../../hooks/useSearchFlights';
+import { useSearchFlights } from '../../hooks';
 import CabinClassSelect from './CabinClassSelect';
 import DateSelector from './DateSelector';
 import LocationInput from './LocationInput';

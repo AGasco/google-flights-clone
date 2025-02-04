@@ -1,15 +1,26 @@
-import { SyncAlt, TrendingFlat } from '@mui/icons-material';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import { FormControl, MenuItem, Select } from '@mui/material';
 import { useFlightContext } from '../../context';
 import { TripType } from '../../types';
+import { useEffect } from 'react';
 
 const options = [
-  { value: 'one_way', label: 'One Way', Icon: TrendingFlat },
-  { value: 'round_trip', label: 'Round Trip', Icon: SyncAlt }
+  { value: 'one_way', label: 'One Way', Icon: TrendingFlatIcon },
+  { value: 'round_trip', label: 'Round Trip', Icon: SyncAltIcon }
 ];
 
 const TripTypeSelect = () => {
-  const { tripType, setTripType } = useFlightContext();
+  const { tripType, setTripType, departureDate, setReturnDate } =
+    useFlightContext();
+
+  useEffect(() => {
+    if (!departureDate) return;
+
+    if (tripType === 'round_trip') {
+      setReturnDate(new Date(departureDate?.getTime() + 3 * 86400000));
+    }
+  }, [tripType]);
 
   return (
     <FormControl fullWidth>
@@ -28,7 +39,6 @@ const TripTypeSelect = () => {
       >
         {options.map(({ value, label, Icon }) => (
           <MenuItem
-            key={value}
             value={value}
             sx={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}
           >

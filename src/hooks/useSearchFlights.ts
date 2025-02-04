@@ -1,15 +1,16 @@
-import { AxiosRequestConfig } from 'axios';
+import { useState, useCallback, useMemo } from 'react';
 import { format } from 'date-fns';
-import { useCallback, useMemo, useState } from 'react';
+import { AxiosRequestConfig } from 'axios';
+import { formatDuration, formatTime } from '../utils';
+import { useFetch } from './useFetch';
 import {
   CabinClass,
+  Flight,
   Itinerary,
   Location,
   PassengerCount,
   TripType
 } from '../types';
-import { formatDuration, formatTime } from '../utils';
-import { useFetch } from './useFetch';
 
 interface SearchFlightsResponse {
   data?: {
@@ -94,7 +95,7 @@ export const useSearchFlights = () => {
         stopAirports,
         carrierName: carrier?.name,
         carrierLogoUrl: carrier?.logoUrl
-      };
+      } as Flight;
     });
   }, [responseData]);
 

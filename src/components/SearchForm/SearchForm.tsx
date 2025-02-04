@@ -1,14 +1,49 @@
 import { SearchOutlined } from '@mui/icons-material';
 import { Box, Button, Grid2, Paper } from '@mui/material';
+import { useEffect } from 'react';
 import { useFlightContext } from '../../context';
+import { useSearchFlights } from '../../hooks/useSearchFlights';
 import CabinClassSelect from './CabinClassSelect';
 import DateSelector from './DateSelector';
 import LocationInput from './LocationInput';
-import PassengersSelect from './PassengersSelect';
+import PassengerSelect from './PassengerSelect';
 import TripTypeSelect from './TripTypeSelect';
 
 const SearchForm = () => {
-  const { origin, setOrigin, destination, setDestination } = useFlightContext();
+  const {
+    origin,
+    setOrigin,
+    destination,
+    setDestination,
+    departureDate,
+    returnDate,
+    cabinClass,
+    passengers,
+    tripType,
+    setFlights
+  } = useFlightContext();
+
+  const { flights, loading, searchFlights } = useSearchFlights();
+
+  const handleSearch = () => {
+    if (!origin || !destination || !departureDate) return;
+
+    searchFlights({
+      origin,
+      destination,
+      departureDate,
+      returnDate,
+      cabinClass,
+      passengers,
+      tripType
+    });
+  };
+
+  useEffect(() => {
+    if (flights) {
+      setFlights(flights);
+    }
+  }, [flights, setFlights]);
 
   return (
     <Paper elevation={3}>
@@ -19,13 +54,12 @@ const SearchForm = () => {
             <TripTypeSelect />
           </Grid2>
           <Grid2 size={{ xs: 2, md: 1 }}>
-            <PassengersSelect />
+            <PassengerSelect />
           </Grid2>
           <Grid2 size={{ xs: 3, sm: 2 }}>
             <CabinClassSelect />
           </Grid2>
         </Grid2>
-
         {/* Second Row */}
         <Grid2 container spacing={2}>
           <Grid2 size={{ xs: 12, sm: 6, lg: 3 }}>
@@ -38,13 +72,15 @@ const SearchForm = () => {
               onChange={setDestination}
             />
           </Grid2>
-          <Grid2 size={{ xs: 16, lg: 6 }}>
+          <Grid2 size={{ xs: 12, lg: 6 }}>
             <DateSelector />
           </Grid2>
         </Grid2>
 
         <Button
           variant="contained"
+          onClick={handleSearch}
+          disabled={loading}
           sx={{
             height: 40,
             borderRadius: 20,

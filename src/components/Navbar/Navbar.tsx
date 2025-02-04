@@ -17,7 +17,7 @@ import {
   Typography
 } from '@mui/material';
 import * as React from 'react';
-import googleLogo from '../assets/google.svg';
+import googleLogo from '../../assets/google.svg';
 import NavLink from './NavLink';
 
 const links = ['Travel', 'Explore', 'Flights', 'Hotels', 'Vacation Rentals'];

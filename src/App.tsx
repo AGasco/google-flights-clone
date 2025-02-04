@@ -1,8 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import './App.css';
 import backgroundImage from './assets/background.svg';
-import Navbar from './components/Navbar';
-import SearchForm from './components/SearchForm';
+import { Navbar, SearchForm } from './components';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import './App.css';
 import backgroundImage from './assets/background.svg';
-import { Navbar, SearchForm } from './components';
+import { FlightList, Navbar, SearchForm } from './components';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
 
           <SearchForm />
 
-          {/* Flights List */}
+          <FlightList />
         </Container>
       </Container>
     </>

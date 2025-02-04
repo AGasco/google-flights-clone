@@ -46,7 +46,7 @@ const SearchForm = () => {
   }, [flights, setFlights]);
 
   return (
-    <Paper elevation={3}>
+    <Paper elevation={3} sx={{ mb: '3rem' }}>
       <Box p={3}>
         {/* First Row */}
         <Grid2 container spacing={2} mb={1.5}>

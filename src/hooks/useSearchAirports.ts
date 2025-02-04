@@ -17,7 +17,7 @@ interface SearchAirportResponse {
   }>;
 }
 
-const useSearchAirports = (searchTerm: string) => {
+export const useSearchAirports = (searchTerm: string) => {
   const url = useMemo(() => {
     return searchTerm
       ? `/v1/flights/searchAirport?query=${encodeURIComponent(
@@ -41,5 +41,3 @@ const useSearchAirports = (searchTerm: string) => {
 
   return { locations, loading, error };
 };
-
-export default useSearchAirports;

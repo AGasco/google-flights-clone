@@ -1,4 +1,4 @@
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import { PersonOutlineOutlined } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -64,7 +64,7 @@ const PassengerSelect = () => {
         }}
         renderValue={() => (
           <>
-            <PersonOutlineOutlinedIcon sx={{ fontSize: '16px' }} />
+            <PersonOutlineOutlined sx={{ fontSize: '16px' }} />
             {totalPassengers}
           </>
         )}

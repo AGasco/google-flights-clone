@@ -1,10 +1,11 @@
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { SearchOutlined } from '@mui/icons-material';
 import { Box, Button, Grid2, Paper } from '@mui/material';
+import { useFlightContext } from '../../context';
 import CabinClassSelect from './CabinClassSelect';
+import DateSelector from './DateSelector';
+import LocationInput from './LocationInput';
 import PassengersSelect from './PassengersSelect';
 import TripTypeSelect from './TripTypeSelect';
-import LocationInput from './LocationInput';
-import { useFlightContext } from '../../context';
 
 const SearchForm = () => {
   const { origin, setOrigin, destination, setDestination } = useFlightContext();
@@ -37,7 +38,9 @@ const SearchForm = () => {
               onChange={setDestination}
             />
           </Grid2>
-          <Grid2 size={{ xs: 16, lg: 6 }}>Date Selector</Grid2>
+          <Grid2 size={{ xs: 16, lg: 6 }}>
+            <DateSelector />
+          </Grid2>
         </Grid2>
 
         <Button
@@ -54,7 +57,7 @@ const SearchForm = () => {
             }
           }}
         >
-          <SearchOutlinedIcon fontSize="small" sx={{ mr: '0.5rem' }} />
+          <SearchOutlined fontSize="small" sx={{ mr: '0.5rem' }} />
           Search
         </Button>
       </Box>

@@ -29,6 +29,7 @@ const SearchForm = () => {
   const handleSearch = () => {
     if (!origin || !destination || !departureDate) return;
 
+    setFlights([]);
     searchFlights({
       origin,
       destination,
@@ -101,7 +102,10 @@ const SearchForm = () => {
         </Box>
       </Paper>
       {loading && (
-        <BounceLoader color={'#1676e5'} cssOverride={{ margin: '0 auto' }} />
+        <BounceLoader
+          color={'#1676e5'}
+          cssOverride={{ margin: '0 auto 2rem' }}
+        />
       )}
       {error && <Typography variant="subtitle2">{error}</Typography>}
     </>

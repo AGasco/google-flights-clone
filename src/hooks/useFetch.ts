@@ -18,8 +18,11 @@ export const useFetch = <T>(
     let cancelled = false;
     setLoading(true);
 
-    if (cache[url]) {
-      setData(cache[url] as T);
+    const fullUrl = axios.getUri({ url, params: config?.params });
+    const cacheKey = fullUrl;
+
+    if (cache[cacheKey]) {
+      setData(cache[cacheKey] as T);
       setLoading(false);
       return;
     }
@@ -27,7 +30,7 @@ export const useFetch = <T>(
     const fetchData = async () => {
       try {
         const response = await axios.get<T>(url, config);
-        cache[url] = response.data;
+        cache[cacheKey] = response.data;
         if (!cancelled) {
           setData(response.data);
         }

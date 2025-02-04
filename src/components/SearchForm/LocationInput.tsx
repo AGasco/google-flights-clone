@@ -11,7 +11,7 @@ interface Props {
 
 const LocationInput = ({ label, value, onChange }: Props) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { locations, loading } = useSearchAirports(debouncedSearchTerm);
 
   const handleInputChange = useCallback(

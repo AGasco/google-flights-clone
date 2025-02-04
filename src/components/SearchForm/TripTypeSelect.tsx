@@ -1,13 +1,12 @@
-import SyncAltIcon from '@mui/icons-material/SyncAlt';
-import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import { SyncAlt, TrendingFlat } from '@mui/icons-material';
 import { FormControl, MenuItem, Select } from '@mui/material';
 import { useFlightContext } from '../../context';
 import { TripType } from '../../types';
 import { useEffect } from 'react';
 
 const options = [
-  { value: 'one_way', label: 'One Way', Icon: TrendingFlatIcon },
-  { value: 'round_trip', label: 'Round Trip', Icon: SyncAltIcon }
+  { value: 'one_way', label: 'One Way', Icon: TrendingFlat },
+  { value: 'round_trip', label: 'Round Trip', Icon: SyncAlt }
 ];
 
 const TripTypeSelect = () => {

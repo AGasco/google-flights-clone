@@ -1,9 +1,11 @@
-import FlightIcon from '@mui/icons-material/Flight';
-import HotelIcon from '@mui/icons-material/Hotel';
-import HouseIcon from '@mui/icons-material/House';
-import LuggageIcon from '@mui/icons-material/Luggage';
-import MenuIcon from '@mui/icons-material/Menu';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import {
+  Flight,
+  Hotel,
+  House,
+  Luggage,
+  Menu as MenuIcon,
+  TravelExplore
+} from '@mui/icons-material';
 import {
   AppBar,
   Avatar,
@@ -17,7 +19,7 @@ import {
   Typography
 } from '@mui/material';
 import * as React from 'react';
-import googleLogo from '../assets/google.svg';
+import googleLogo from '../../assets/google.svg';
 import NavLink from './NavLink';
 
 const links = ['Travel', 'Explore', 'Flights', 'Hotels', 'Vacation Rentals'];
@@ -118,21 +120,21 @@ const Navbar = () => {
                   }}
                 >
                   <NavLink isDummy={true}>
-                    <LuggageIcon
+                    <Luggage
                       color="primary"
                       sx={{ width: '18px', marginRight: '5px' }}
                     />
                     Travel
                   </NavLink>
                   <NavLink isDummy>
-                    <TravelExploreIcon
+                    <TravelExplore
                       color="primary"
                       sx={{ width: '18px', marginRight: '8px' }}
                     />
                     Explore
                   </NavLink>
                   <NavLink href="/">
-                    <FlightIcon
+                    <Flight
                       color="primary"
                       sx={{
                         width: '18px',
@@ -143,14 +145,14 @@ const Navbar = () => {
                     Flights
                   </NavLink>
                   <NavLink isDummy>
-                    <HotelIcon
+                    <Hotel
                       color="primary"
                       sx={{ width: '18px', marginRight: '8px' }}
                     />
                     Hotels
                   </NavLink>
                   <NavLink isDummy>
-                    <HouseIcon
+                    <House
                       color="primary"
                       sx={{ width: '18px', marginRight: '8px' }}
                     />

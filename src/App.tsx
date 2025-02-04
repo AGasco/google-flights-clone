@@ -1,7 +1,7 @@
-import { Box, Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import './App.css';
 import backgroundImage from './assets/background.svg';
-import Navbar from './components/Navbar';
+import { Navbar, SearchForm } from './components';
 
 function App() {
   return (
@@ -18,6 +18,22 @@ function App() {
             objectFit: 'cover'
           }}
         />
+
+        <Container
+          sx={{
+            marginTop: '-4rem',
+            width: '100%',
+            maxWidth: { xs: '100%', md: '80%' }
+          }}
+        >
+          <Typography variant="h2" component="h1" gutterBottom>
+            Flights
+          </Typography>
+
+          <SearchForm />
+
+          {/* Flights List */}
+        </Container>
       </Container>
     </>
   );

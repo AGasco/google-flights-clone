@@ -40,7 +40,8 @@ A minimal React/TypeScript application emulating flight search functionality. Us
 - Provide your RapidAPI key as VITE_RAPIDAPI_KEY.
 
 2. **Run the App**
-  ```bash
+   
+   ```bash
    npm run dev
    ```
 Opens the development server at http://localhost:5173 by default.

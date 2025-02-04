@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Google Flights Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal React/TypeScript application emulating flight search functionality. Uses **MUI**, **React Context** for global state, and **Axios** for data fetching.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Search Flights** – Enter origin, destination, date(s), and cabin class.  
+2. **Filter Options** – Round trip or one-way, passenger count, and cabin class.  
+3. **Flight Results** – Displays pricing, duration, stops, and carrier details.  
+4. **Airport Autocomplete** – Type-ahead suggestions for cities or airports.  
+5. **State Management** – Centralized flight data in a custom `FlightContext`.  
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **src/**  
+  - **components/**  
+    - Components organized by domain
+  - **context/**  
+    - `FlightContext.tsx` for global flight-related state  
+  - **hooks/**  
+    - Custom hooks (`useFetch`, `useSearchFlights`, `useSearchAirports`, `useDebounce`)  
+  - **types/**  
+    - Type definitions for flights, locations, and related data models  
+  - **utils/**  
+    - Helper functions (`formatTime`, `formatDuration`)  
+  - **App.tsx**  
+    - Main container rendering the UI layout and search components  
+  - **main.tsx**  
+    - Entry point, wraps `App` with providers and renders to the DOM  
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Install Dependencies**  
+   ```bash
+   npm install
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Install Dependencies**  
+- Create a .env file or use your preferred method for Vite environment variables.
+- Provide your RapidAPI key as VITE_RAPIDAPI_KEY.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. **Run the App**
+  ```bash
+   npm run dev
+   ```
+Opens the development server at http://localhost:5173 by default.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Notes
+- The API calls use sky-scrapper via RapidAPI -> https://rapidapi.com/apiheya/api/sky-scrapper
+- Caching is done in useFetch with a simple in-memory cache.
+- MUI’s date and icon libraries are used to handle pickers and UI icons.

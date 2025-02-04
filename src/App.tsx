@@ -2,6 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 import './App.css';
 import backgroundImage from './assets/background.svg';
 import Navbar from './components/Navbar';
+import SearchForm from './components/SearchForm';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Typography variant="h2" component="h1" gutterBottom>
             Flights
           </Typography>
+
+          <SearchForm />
+
+          {/* Flights List */}
         </Container>
       </Container>
     </>

@@ -3,8 +3,12 @@ import { Box, Button, Grid2, Paper } from '@mui/material';
 import CabinClassSelect from './CabinClassSelect';
 import PassengersSelect from './PassengersSelect';
 import TripTypeSelect from './TripTypeSelect';
+import LocationInput from './LocationInput';
+import { useFlightContext } from '../../context';
 
 const SearchForm = () => {
+  const { origin, setOrigin, destination, setDestination } = useFlightContext();
+
   return (
     <Paper elevation={3}>
       <Box p={3}>
@@ -23,8 +27,16 @@ const SearchForm = () => {
 
         {/* Second Row */}
         <Grid2 container spacing={2}>
-          <Grid2 size={{ xs: 12, sm: 6, lg: 3 }}>From</Grid2>
-          <Grid2 size={{ xs: 12, sm: 6, lg: 3 }}>To</Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, lg: 3 }}>
+            <LocationInput label="From" value={origin} onChange={setOrigin} />
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, lg: 3 }}>
+            <LocationInput
+              label="To"
+              value={destination}
+              onChange={setDestination}
+            />
+          </Grid2>
           <Grid2 size={{ xs: 16, lg: 6 }}>Date Selector</Grid2>
         </Grid2>
 

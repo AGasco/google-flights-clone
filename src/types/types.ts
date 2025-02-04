@@ -3,7 +3,7 @@ export interface Location {
   name: string;
   code: string;
   entityId: string;
-  displayCode: string;
+  displayCode?: string;
   country: string;
 }
 

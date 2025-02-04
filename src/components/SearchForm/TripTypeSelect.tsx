@@ -29,6 +29,7 @@ const TripTypeSelect = () => {
       >
         {options.map(({ value, label, Icon }) => (
           <MenuItem
+            key={value}
             value={value}
             sx={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}
           >

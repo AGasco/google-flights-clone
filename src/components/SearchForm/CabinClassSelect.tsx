@@ -29,6 +29,7 @@ const CabinClassSelect = () => {
       >
         {options.map(({ value, label }) => (
           <MenuItem
+            key={value}
             value={value}
             sx={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}
           >

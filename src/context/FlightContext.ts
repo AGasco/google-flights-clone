@@ -1,5 +1,11 @@
 import { createContext, useContext } from 'react';
-import { CabinClass, Location, PassengerCount, TripType } from '../types';
+import {
+  CabinClass,
+  Flight,
+  Location,
+  PassengerCount,
+  TripType
+} from '../types';
 
 interface FlightContextType {
   tripType: TripType;
@@ -16,6 +22,8 @@ interface FlightContextType {
   setDepartureDate: (date: Date | null) => void;
   returnDate: Date | null;
   setReturnDate: (date: Date | null) => void;
+  flights: Flight[];
+  setFlights: (flights: Flight[]) => void;
 }
 
 export const FlightContext = createContext<FlightContextType | undefined>(

@@ -1,6 +1,7 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Box, Button, Grid2, Paper } from '@mui/material';
 import TripTypeSelect from './TripTypeSelect';
+import CabinClassSelect from './CabinClassSelect';
 
 const SearchForm = () => {
   return (
@@ -12,7 +13,9 @@ const SearchForm = () => {
             <TripTypeSelect />
           </Grid2>
           <Grid2 size={{ xs: 2, md: 1 }}>Passengers</Grid2>
-          <Grid2 size={{ xs: 3, sm: 2 }}>Cabin Class</Grid2>
+          <Grid2 size={{ xs: 3, sm: 2 }}>
+            <CabinClassSelect />
+          </Grid2>
         </Grid2>
 
         {/* Second Row */}

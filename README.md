@@ -35,7 +35,7 @@ A minimal React/TypeScript application emulating flight search functionality. Us
    npm install
    ```
 
-2. **Install Dependencies**  
+2. **Set up API key**  
 - Create a .env file or use your preferred method for Vite environment variables.
 - Provide your RapidAPI key as VITE_RAPIDAPI_KEY.
 

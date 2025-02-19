@@ -2,6 +2,8 @@
 
 A minimal React/TypeScript application emulating flight search functionality. Uses **MUI**, **React Context** for global state, and **Axios** for data fetching.
 
+[Watch the demo](https://www.loom.com/share/1b09c1859ec241e5b6dfe8bb11b4182c?sid=6f297cac-8125-4de3-a878-c05f0bd8378b)
+
 ## Features
 
 1. **Search Flights** – Enter origin, destination, date(s), and cabin class.  
